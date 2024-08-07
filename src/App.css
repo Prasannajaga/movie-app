@@ -1,0 +1,11 @@
+ 
+
+ .menu{
+    text-decoration: none;
+    list-style: none;
+ }
+
+
+ .menu-item{
+    @apply hover:bg-secondaryColor rounded-full p-4 duration-300 cursor-pointer font-bold w-fit;
+ }
