@@ -4,12 +4,12 @@ import { createBrowserRouter, RouterProvider
 } from "react-router-dom"; 
 import Login from './components/login/login';
 import App from './App';
-
+ 
 const route = createBrowserRouter([
   {
     path : "/",
     Component : App,
-    children : [], 
+    children : [],  
   },
   {
     path : "login", 
