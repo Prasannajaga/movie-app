@@ -2,16 +2,17 @@
   "name": "expressjs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index.ts"
+    "start": "nodemon src/app.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.20.0",
+    "expressjs": "file:",
     "http-proxy": "^1.18.1"
   },
   "devDependencies": {

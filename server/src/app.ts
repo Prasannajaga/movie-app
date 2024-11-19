@@ -1,5 +1,5 @@
+import express , {Express, Router, Request, Response } from "express";
 
-import express, { Express, Request, Response } from "express"; 
 import { homeRoutes } from "./routes/home";
 import { employeeRoutes } from "./routes/employee";
 import { loggingInterceptor } from "./interceptor/interceptor";
@@ -18,5 +18,5 @@ app.use(authInterceptor);
 app.use('/home' , homeRoutes);
 app.use('/employee' , employeeRoutes);
  
-app.listen(8000 , () =>{ 
+app.listen(3000 , () =>{ 
 });
