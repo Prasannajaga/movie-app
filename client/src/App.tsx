@@ -1,44 +1,51 @@
-import { faBell } from "@fortawesome/free-solid-svg-icons";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect, useState } from "react";
 import "./App.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { getMovies } from "./components/authService/movieService";
+import Header from "./components/home/header";
+import Trailer from "./components/home/trailer";
+import Watching from "./components/home/watching";
+import Movies from "./components/movies/movies";
+ 
 function App() {
-  return (
+
+  const [movies, setMovies] = useState<any>([]); 
+
+  useEffect(() => {
+    async function getMoviesData() {
+      await getMovies().then((x) => {
+        setMovies(x.data.results);
+      }); 
+    }
+
+    getMoviesData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  
+  return ( 
     <>
-      <div className="container mx-auto">
+      <div className="container xl:mx-auto lg:mx-auto md:mx-5 px-4">
+        <Header />
 
-        <div className="flex flex-row gap-8 mt-4 items-center ">
+        <div className="grid grid-cols-4 gap-10 mt-5 mb-5">
 
-          <div >
-            <input  className="p-4 rounded-full outline-none
-             shadow-lg bg-TextColor placeholder-white caret-white" type="text" placeholder="Search Movies" />
+          <div className="grid grid-cols-subgrid gap-10 mb-5">
+            {/* <div className="col-start-1"> */}
+              <Trailer movies={movies}/>
+            {/* </div> */}
+            {/* <div className="col-start-1"> */}
+              <Watching movies={movies}/>
+            {/* </div> */}
           </div>
 
-          <ul className="menu grid  sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-10  items-center text-white text-center whitespace-nowrap">
-            <li className="menu-item">Movies</li>
-            <li className="menu-item">Tv Series</li>
-            <li className="menu-item">Animation</li>
-            <li className="menu-item">Mystery</li>
-            <li className="menu-item">More</li>
-            <li className="menu-item"> 
-                 <FontAwesomeIcon icon={faBell} />  
-            </li>
-            <li className="bg-secondaryColor col-span-2 menu-item">
-              <div className="flex gap-2 ">
-                <img
-                  className="w-10 h-auto rounded-full"
-                  src="https://i.pravatar.cc/100"
-                  alt=""
-                />
-                <span className="text-start flex flex-col gap-0 ">
-                  <h3 className="text-base">Prasanna</h3>
-                  <span className="text-xs">@Prasanna.com</span>
-                </span>
-              </div>
-            </li>
-          </ul>
+          <div className="col-span-3 mb-5">
+            <Movies props={movies} />
+          </div>
+
 
         </div>
+
       </div>
     </>
   );
