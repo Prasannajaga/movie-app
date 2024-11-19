@@ -1,11 +1,103 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.menu {
+  text-decoration: none;
+  list-style: none;
+}
+
+.menu-item {
+  @apply hover:bg-secondaryColor rounded-full p-4 duration-300 cursor-pointer font-semibold w-fit;
+}
+
+.aspect-ratio-wide {
+  aspect-ratio: 9 / 4.5;
+  object-fit: cover;
+  object-position: bottom;
+}
+
+.aspect-rt-vertical { 
+  aspect-ratio: 3 / 5;
+}
+
+.img-svg {
+  @apply w-[40px] h-[40px] rounded-full;
+  background-color: #606061;
+}
+
+
+.scrollBarContent::-webkit-scrollbar{
+   display: none;
+}
+
+.cardMovies:hover > .df{
+  transform: scale(1.2);
+} 
+
+.mask-it{ 
+ -webkit-mask-image: linear-gradient(to bottom left, rgba(0, 0, 0, 1), rgb(0 0 0 / 39%) 99%); 
+  mask-image: linear-gradient(to bottom left, rgba(0, 0, 0, 1), rgb(0 0 0 / 39%) 99%);  
+}
+
+.slide-body{ 
+  transition: 1s all; 
+}
  
+.active-slide{
+  /* visibility: visible; */
+  display: block;
+  opacity: 1;
+  transition-delay: 500ms;
+  transition: 1s all; 
+}
 
- .menu{
-    text-decoration: none;
-    list-style: none;
- }
 
+.play-btn{
+  @apply  px-6 py-[0.5rem] rounded-[30px] border-[2px] border-white hover:bg-white;
+  background: linear-gradient(to left, transparent 50%, rgb(255, 255, 255) 50%) right;
+  background-size: 200%;
+  transition: .3s ease-out;
+}
 
- .menu-item{
-    @apply hover:bg-secondaryColor rounded-full p-4 duration-300 cursor-pointer font-bold w-fit;
- }
+.play-btn:hover{
+  background-position: left;
+}
+
+.play-body{
+  @apply inline-flex items-center gap-2 transition-all duration-300 font-semibold;
+}
+
+.img-full{
+  height: calc(100vh - 20px);
+}
+
+.from-top{
+  transform: translateY(-100%);
+  animation: slideIn 500ms ease-out forwards;  
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.slideInLeft{
+  transform: translateX(-1000%);
+  animation: slideInLeft 500ms ease-out forwards;
+  animation-delay: 500ms;  
+}
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-1000%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+ 
