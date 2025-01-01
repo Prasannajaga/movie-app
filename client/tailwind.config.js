@@ -11,7 +11,21 @@ export default {
         secondaryColor  : "#999897",
         TextColor  : "#787776",
         svgColor : "#c1c1c1",
-        lightG : "#575353"
+        lightG : "#575353",
+        "dk-Primary-3" : "#434343",
+        "dk-Primary-2" : "#5C5C5C",
+        "dk-Primary-1" : "#777777",
+        "lg-Primary-3" : "#929292",
+        "lg-Primary-2" : "#BABABA",
+        "lg-Primary-1" : "#D2D2D2",
+      },
+      colors : {
+        "dk-Primary-3" : "#434343",
+        "dk-Primary-2" : "#5C5C5C",
+        "dk-Primary-1" : "#777777",
+        "lg-Primary-3" : "#929292",
+        "lg-Primary-2" : "#BABABA",
+        "lg-Primary-1" : "#D2D2D2",
       },
       borderColor : {
         

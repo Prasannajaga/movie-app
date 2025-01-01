@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider
 import Login from './components/login/login';
 import App from './App';
 import MovieDetails from './components/movies/details';
+import Movies from './components/movies/movies';
  
 const route = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const route = createBrowserRouter([
   {
     path : "login", 
     Component : Login
+  },
+  {
+    path : "movies", 
+    Component : Movies
   },
   {
     path : "movie/:movieId", 

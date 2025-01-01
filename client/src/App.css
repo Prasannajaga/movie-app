@@ -1,20 +1,16 @@
 * {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
-.menu {
-  text-decoration: none;
-  list-style: none;
-}
+ 
 
 .menu-item {
-  @apply hover:bg-secondaryColor rounded-full p-4 duration-300 cursor-pointer font-semibold w-fit;
+  @apply bg-secondaryColor rounded-full p-4 duration-300 cursor-pointer font-semibold w-fit;
 }
 
 .aspect-ratio-wide {
   aspect-ratio: 9 / 4.5;
   object-fit: cover;
-  object-position: bottom;
+  /* object-position: bottom; */
 }
 
 .aspect-rt-vertical { 
@@ -28,28 +24,30 @@
 
 
 .scrollBarContent::-webkit-scrollbar{
-   display: none;
+   display: none !important;
 }
 
-.cardMovies:hover > .df{
+.cardMovies:hover > .df{ 
   transform: scale(1.2);
 } 
+
 
 .mask-it{ 
  -webkit-mask-image: linear-gradient(to bottom left, rgba(0, 0, 0, 1), rgb(0 0 0 / 39%) 99%); 
   mask-image: linear-gradient(to bottom left, rgba(0, 0, 0, 1), rgb(0 0 0 / 39%) 99%);  
+  @apply hover:scale-105 transition-all duration-300;
 }
 
 .slide-body{ 
-  transition: 1s all; 
+  transition: 2s display; 
 }
  
 .active-slide{
   /* visibility: visible; */
   display: block;
-  opacity: 1;
-  transition-delay: 500ms;
-  transition: 1s all; 
+  /* opacity: 1; */
+  /* transition-delay: 500ms; */
+  /* transition: 500ms all;  */
 }
 
 
@@ -101,3 +99,70 @@
   }
 }
  
+
+.genres-bdy {
+  @apply p-2 py-1 rounded-xl text-sm font-normal bg-dk-Primary-3 text-white;
+}
+
+.critics-bdy{
+  @apply py-2 px-2 flex gap-2 justify-between items-center text-xs font-semibold rounded-2xl bg-lg-Primary-2;
+}
+
+.mightLike-container{
+ @apply  sm:grid-cols-2 md:flex md:gap-4 lg:flex lg:gap-4 xl:flex xl:gap-4;
+}
+
+.movie-title{
+  @apply hidden sm:hidden md:hidden lg:flex xl:flex;
+}
+
+.upto-screen{
+  height: calc(100vh - 10px);
+}
+
+.profileName{
+  @apply text-white text-ellipsis w-24 text-sm text-wrap text-center;
+}
+ 
+
+.text-ellips{
+  @apply w-16 text-ellipsis;
+} 
+
+
+.trailer-title{
+  position: absolute;
+  color: white;
+  bottom: 0; 
+  padding: 0.5rem;
+  padding-left: 5px;
+  height: 35%;
+  width: 100%; 
+  background: rgb(103 106 117 / 30%);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);  
+}
+
+.play-trailer{
+  border: 1px;
+  border-radius: 30px; 
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+
+.detailed-bdy{
+  @apply bg-lg-Primary-3 rounded-2xl p-4 overflow-auto overflow-x-hidden;
+}
+
+.detail-title{
+  @apply text-2xl text-white font-semibold mb-3 bg-dk-Primary-1 p-2 rounded-lg
+}
+
+.crew-body{
+  @apply flex gap-6 p-2 pl-4 overflow-auto;
+}
+
+.crew-body-responsive{
+  @apply w-full sm:w-full md:w-full lg:w-full xl:w-[52rem];
+}

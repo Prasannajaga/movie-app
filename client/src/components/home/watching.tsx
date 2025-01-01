@@ -25,7 +25,7 @@ function Watching(props : any) {
 
   return (  
     <> 
-      <div className="bg-secondaryColor rounded-2xl p-5 h-[330px] overflow-hidden overflow-y-scroll scrollBarContent">
+      <div className="h-auto min-h-80 bg-secondaryColor rounded-2xl p-5 overflow-hidden overflow-y-scroll scrollBarContent">
         {/* <div className="overflow-hidden p-5"> */}
 
         <h2 className="text-white font-semibold mb-4">Continue watching</h2>
