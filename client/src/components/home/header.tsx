@@ -24,7 +24,8 @@ function Header() {
   const navigate = useNavigate();
 
   function route(d?:string){
-    navigate(`/movies?genre=${d}`)
+    const URL= d != undefined ? `/movies?genre=${d}` : `/movies`;
+    navigate(URL);
   }
 
 

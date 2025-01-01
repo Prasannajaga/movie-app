@@ -13,7 +13,12 @@ Discover movies and watch trailers with ease on this sleek, user-friendly platfo
 
 ## 🚀 Preview
 
-![Movie Search Website](image.png)
+![Preview 1](img3.png)
+
+![Preview 2](image.png)
+
+![Preview 3](img2.png)
+
 
 
 ## 🚀 Get Started

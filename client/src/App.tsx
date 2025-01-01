@@ -54,7 +54,7 @@ function App() {
 
       </div>
 
-      <div className="container p-4 text-center text-white">
+      <div className="container xl:mx-auto lg:mx-auto md:mx-5 px-4 text-center text-white">
           powered By <a className="underline" target="_blank" href="https://www.betaseries.com/en/"> betaSeries </a>
       </div>
     </>

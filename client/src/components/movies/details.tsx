@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import { getCastByMovies, getMoviesById, getSimiliarMovies } from "../authService/movieService"; 
+import { getCastByMovies, getMoviesById, getSimiliarMovies, initDB } from "../authService/movieService"; 
 import Unknown_user from  "../../assets/unknown.png"
 import MovieCard from "./movieCard"; 
-import SvgTemplate from "../Service/svg";
+import SvgTemplate from "../Service/svg"; 
+
 
  
 function MovieDetails() {
@@ -21,6 +22,7 @@ function MovieDetails() {
     async function getMovies() {
       await getMoviesById(Number(movieId)).then((x) => {
         setData(x.data.movie);
+        updateContinuWatching(x.data.movie);
         getCastMember();
         getSimiliarData(x.data.movie.genres ? x.data.movie.genres.join(',') : '')
       });
@@ -38,6 +40,7 @@ function MovieDetails() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ movieId , location.state?.id]);  
 
+
   async function getCastMember(){
     await getCastByMovies(movieId || "").then((x)=>{
       setCast(x.data.characters);
@@ -54,6 +57,21 @@ function MovieDetails() {
     const newDate = new Date(date);
     return newDate.getUTCFullYear();
   } 
+
+  async function updateContinuWatching(d:any){
+   const db : any = await initDB();
+
+   const ifExist = await db.get('movie', d.id);
+
+   if(ifExist){
+    console.log('exist',ifExist);
+    return;
+   }
+
+   await db.put('movie', { ...d}); 
+  }
+
+   
 
   return (
     <>

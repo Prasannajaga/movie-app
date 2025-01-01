@@ -1,3 +1,4 @@
+import { openDB } from 'idb';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { baseHttp } from "./baseHttp"
 
@@ -57,7 +58,14 @@ export const saveMovies = async (datas : Record<string , any>) => {
 }
 
 
-
+export async function initDB () {
+    const db = await openDB('movieDb', 1, {
+      upgrade(db) {
+        db.createObjectStore('movie', { keyPath: 'id' });
+      },
+   });
+  return db;
+  }
 
 
 

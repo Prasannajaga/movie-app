@@ -3,6 +3,7 @@ import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { initDB } from "../authService/movieService";
 
 function Watching(props : any) {
   
@@ -10,22 +11,24 @@ function Watching(props : any) {
   const navigate = useNavigate();
 
   useEffect(()=>{
-    const data : any[] = props.movies;
-    if(data){
-      const trailer = data.filter((_x :any, index:number) => index >= 70).filter((_x,index) => index < 10);
-      setMovies(trailer);
-      console.log("Updated " , trailer);
-      
-    }
+       getMovies();
   } ,[props.movies])
 
   function onRoute(id : string | number){
     navigate(`movie/${id}`)
   }
 
+  async function getMovies(){
+    const db = await initDB();
+    if(db){
+      const response = await db.getAll('movie'); 
+      setMovies(response);
+    }
+  }
+
   return (  
     <> 
-      <div className="h-auto min-h-80 bg-secondaryColor rounded-2xl p-5 overflow-hidden overflow-y-scroll scrollBarContent">
+      <div className="h-auto md:h-40 lg:h-40 xl:h-40 min-h-80 bg-secondaryColor rounded-2xl p-5 overflow-hidden overflow-y-scroll scrollBarContent">
         {/* <div className="overflow-hidden p-5"> */}
 
         <h2 className="text-white font-semibold mb-4">Continue watching</h2>
@@ -39,7 +42,7 @@ function Watching(props : any) {
                     onClick={() => onRoute(item.id)}
                     className="max-w-full w-12 h-12 rounded-lg object-fill object-center"
                     alt="Nothing"
-                    src={item.image}
+                    src={item.poster}
                   />
                 </span>   
 
