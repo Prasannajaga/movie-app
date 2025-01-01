@@ -11,6 +11,11 @@ Discover movies and watch trailers with ease on this sleek, user-friendly platfo
 - **Frontend**: React, Tailwind CSS
 - **Backend/API**: Betaseries API (or any other used) 
 
+## 🚀 Preview
+
+![Movie Search Website](image.png)
+
+
 ## 🚀 Get Started
 1. Clone the repository:
    ```bash
